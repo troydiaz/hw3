@@ -35,3 +35,16 @@ To test the `mysort` program with an input test file and a timeout, use:
 - **`<seconds>`**: The maximum allowed execution time before timeout.
 
 Ensure that the timeout is sufficiently large (e.g., 2-4 seconds) to account for execution delays but not excessively high to slow down debugging and fuzzing.
+
+## Extra
+
+### **Compile fixed version of mysort.c:**
+
+```sh
+gcc -Wall -Wextra -o fixed_mysort fixed_mysort.c
+```
+
+### **Run fixed version:**
+```sh
+./fixed_mysort <input_file.txt> <timeout>
+```
