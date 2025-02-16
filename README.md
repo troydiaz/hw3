@@ -48,3 +48,4 @@ gcc -Wall -Wextra -o fixed_mysort fixed_mysort.c
 ```sh
 ./fixed_mysort <input_file.txt> <timeout>
 ```
+
