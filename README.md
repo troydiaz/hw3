@@ -13,6 +13,10 @@ make clean && make
 Use the delta debugging tool to minimize a failing test case:
 
 ```sh
+chmod +x script
+```
+
+```sh
 delta/bin/delta -test=script -cp_minimal=min_failing_test.txt < big_failing_test.txt
 ```
 
