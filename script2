@@ -1,0 +1,21 @@
+#!/bin/sh
+# This script is used by delta debugging to test if the input file causes
+# the bug (i.e., mysort fails with a timeout error).
+
+# Set a timeout value (in seconds); adjust if necessary.
+TIMEOUT=3
+
+# Run the program with the candidate input file ($1) and capture its output.
+# It is assumed that the mysort binary is in the current directory.
+OUTPUT=$(./mysort "$1" "$TIMEOUT" 2>&1)
+
+# Check if the output contains the timeout error message.
+echo "$OUTPUT" | grep -q "Error: timeout"
+if [ $? -eq 0 ]; then
+    # The bug is present: candidate input causes a timeout.
+    # Return a non-zero exit code to indicate failure.
+    exit 1
+else
+    # No bug observed on this input.
+    exit 0
+fi
